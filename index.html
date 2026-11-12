@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Matriz de Evidências · Materiais Manipulativos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <p class="eyebrow">Ensino de Matemática nos anos iniciais</p>
+      <h1>Matriz de Evidências</h1>
+      <p class="lead">Uso de materiais manipulativos — navegue pelos registros em cards, filtre por programa, volume e pesquise por termos.</p>
+      <div class="hero-links">
+        <a class="btn" href="Relatorio_materiais_manipulativos.pdf" target="_blank" rel="noopener">Relatório (PDF)</a>
+        <a class="btn secondary" href="Matriz_de_evidencias.csv" download>Baixar CSV</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="filters" aria-label="Filtros">
+      <div class="field search">
+        <label for="q">Busca</label>
+        <input id="q" type="search" placeholder="Material, conhecimento, atividade, identificador…">
+      </div>
+      <div class="field">
+        <label for="programa">Programa</label>
+        <select id="programa"><option value="">Todos</option></select>
+      </div>
+      <div class="field">
+        <label for="volume">Volume</label>
+        <select id="volume"><option value="">Todos</option></select>
+      </div>
+      <div class="field">
+        <label for="sort">Ordenar</label>
+        <select id="sort">
+          <option value="id">Identificador</option>
+          <option value="programa">Programa / Volume</option>
+        </select>
+      </div>
+      <div class="actions">
+        <button id="clear" class="btn secondary" type="button">Limpar filtros</button>
+      </div>
+    </section>
+
+    <div class="status-bar"><span id="count"></span></div>
+    <section id="cards" class="cards" aria-live="polite"></section>
+    <div id="empty" class="empty" hidden>Nenhum registro encontrado para os filtros selecionados.</div>
+  </main>
+
+  <footer class="footer container">
+    <p>Fonte dos registros: <a href="Matriz_de_evidencias.csv">Matriz_de_evidencias.csv</a>. Cada card mantém o link para a página de origem quando disponível.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
