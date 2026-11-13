@@ -11,7 +11,7 @@
     <div class="container">
       <p class="eyebrow">Tese da Carla Sofia</p>
       <h1>Matriz de Fichamento</h1>
-      <p class="lead">Arquivo atualizado da matriz de fichamento da Tese da Carla Sofia.</p>
+      <p class="lead">Navegue pelos registros em cards, filtre e pesquise na matriz de fichamento.</p>
       <div class="hero-links">
         <a class="btn" href="matriz_orientacoes_v2.xlsx" download>Baixar matriz (XLSX)</a>
       </div>
@@ -19,15 +19,40 @@
   </header>
 
   <main class="container">
-    <section class="card" style="max-width:720px;margin:32px auto;text-align:center;">
-      <h2 style="margin:0 0 8px;font-size:1.2rem;">Download</h2>
-      <p style="margin:0 0 16px;color:var(--muted);">O site disponibiliza exclusivamente o arquivo da matriz enviado.</p>
-      <a class="btn" href="matriz_orientacoes_v2.xlsx" download style="background:var(--brand);color:#fff;">matriz_orientacoes_v2.xlsx</a>
+    <section class="filters" aria-label="Filtros">
+      <div class="field search">
+        <label for="q">Busca</label>
+        <input id="q" type="search" placeholder="ID, material, conhecimento, seção, evidência…">
+      </div>
+      <div class="field">
+        <label for="programa">Programa</label>
+        <select id="programa"><option value="">Todos</option></select>
+      </div>
+      <div class="field">
+        <label for="volume">Volume</label>
+        <select id="volume"><option value="">Todos</option></select>
+      </div>
+      <div class="field">
+        <label for="sort">Ordenar</label>
+        <select id="sort">
+          <option value="id">ID da orientação</option>
+          <option value="fonte">Programa / Volume / Seção</option>
+        </select>
+      </div>
+      <div class="actions">
+        <button id="clear" class="btn secondary" type="button">Limpar filtros</button>
+      </div>
     </section>
+
+    <div class="status-bar"><span id="count"></span></div>
+    <section id="cards" class="cards" aria-live="polite"></section>
+    <div id="empty" class="empty" hidden>Nenhum registro encontrado para os filtros selecionados.</div>
   </main>
 
-  <footer class="footer container" style="text-align:center;">
-    <p><strong>Tese da Carla Sofia.</strong></p>
+  <footer class="footer container">
+    <p><strong>Tese da Carla Sofia.</strong> Fonte: <a href="matriz_orientacoes_v2.xlsx">matriz_orientacoes_v2.xlsx</a>.</p>
   </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>
